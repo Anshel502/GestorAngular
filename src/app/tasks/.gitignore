@@ -1,0 +1,18 @@
+# Dependencias
+node_modules/
+package-lock.json
+
+# Build
+dist/
+.tmp/
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
+
+# Configuraciones de IDEs
+.vscode/
+.idea/
+
+# Variables de entorno
+.env
