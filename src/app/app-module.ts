@@ -1,20 +1,28 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing-module';
-import { App } from './app';
-
+import { Header } from './header/header';
+import { AppComponent } from './app';
+import { IfRoute } from './directives/if-route';
+import { UsuarioList } from './usuario-list/usuario-list';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
-    App
+    AppComponent,
+    Header,
+     IfRoute,
+     UsuarioList
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule,
+    ReactiveFormsModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners()
   ],
-  bootstrap: [App]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

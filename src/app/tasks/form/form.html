@@ -1,0 +1,26 @@
+<h2>Agregar nueva tarea</h2>
+
+<form [formGroup]="tareaForm" (ngSubmit)="addTask($event)" novalidate>
+
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="titulo"
+      placeholder="Título de la tarea"
+      [ngClass]="{ 'is-invalid': campoInvalido('titulo') }"
+      class="form-control"
+    />
+
+    <!-- mensaje de error -->
+    <div *ngIf="campoInvalido('titulo')" class="invalid-feedback">
+      Escribe un título válido.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="tareaForm.invalid" class="btn btn-primary mt-2">
+    Agregar
+  </button>
+
+ 
+
+</form>

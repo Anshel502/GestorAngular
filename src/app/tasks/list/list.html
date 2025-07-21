@@ -1,0 +1,39 @@
+<div class="container my-5 d-flex justify-content-center">
+  <div class="card shadow-sm w-100" style="max-width: 700px;">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Gestión de Tareas</h5>
+    </div>
+
+    <ul class="list-group list-group-flush">
+      <li
+        class="list-group-item d-flex align-items-center"
+        *ngFor="let task of tasks"
+        [ngClass]="{
+          'bg-light': !task.completed,
+          'bg-success bg-opacity-10': task.completed
+        }"
+      >
+        <input
+          class="form-check-input me-3"
+          type="checkbox"
+          [checked]="task.completed"
+          (change)="toggleTask(task.id)"
+          id="task{{ task.id }}"
+        />
+        <label
+          [for]="'task' + task.id"
+          class="form-check-label mb-0 flex-grow-1"
+          [ngClass]="{
+            'text-decoration-line-through text-muted': task.completed,
+            'fw-bold': !task.completed
+          }"
+        >
+          {{ task.title }}
+        </label>
+        <button class="btn btn-sm btn-outline-danger" (click)="eliminarTarea(task.id)">
+          <i class="bi bi-trash"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
